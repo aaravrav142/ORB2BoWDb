@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="orb2bowdb" type="builder" name="builder" clear_params="true" output="screen">
+        <param name="listenTo" value="/camera/image_raw" />
+        <param name="outputPath" value="/tmp/ants_db.yml" />
+        <param name="frameInterval" value="50" />
+    </node>
+</launch>
