@@ -15,6 +15,16 @@ find_package(DLib REQUIRED)
 
 catkin_package()
 
-include_directories(${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS} ${DLib_INCLUDE_DIRS} ${DBoW2_INCLUDE_DIRS})
-add_executable(builder src/builder_node.cc)
+include_directories(
+	include 
+	${catkin_INCLUDE_DIRS} 
+	${OpenCV_INCLUDE_DIRS} 
+	${DLib_INCLUDE_DIRS} 
+	${DBoW2_INCLUDE_DIRS})
+
+list(APPEND SOURCEFILES
+	src/builder_node.cc
+	src/ORBextractor.cc)
+
+add_executable(builder ${SOURCEFILES})
 target_link_libraries(builder ${OpenCV_LIBRARIES} ${catkin_LIBRARIES} ${DLib_LIBS} ${DBoW2_LIBRARIES})
